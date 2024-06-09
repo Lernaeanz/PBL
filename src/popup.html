@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup with Tailwind CSS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Optional custom styles */
+    .popup {
+      display: none;
+    }
+    .popup.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+  
+  <table class="w-9/12 bg-white border-gray-300 absolute bottom-[60px] left-[90px] rounded">
+    <thead>
+      <tr>
+        <th class="border border-gray-300 px-4 py-2">Nama</th>
+                <th class="border border-gray-300 px-4 py-2">NIK</th>
+                <th class="border border-gray-300 px-4 py-2">Password</th>
+                <th class="border border-gray-300 px-4 py-2">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border border-gray-400 px-4 py-2">Some Data</td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded openPopup">
+            edit
+          </button></td>
+      </tr>
+      <tr>
+        <td class="border border-gray-400 px-4 py-2">Some Data</td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded openPopup">
+            edit
+          </button></td>
+      </tr>
+      <tr>
+        <td class="border border-gray-400 px-4 py-2">Some Data</td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"></td>
+        <td class="border border-gray-400 px-4 py-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded openPopup">
+            edit
+          </button></td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <div id="myPopup" class="popup fixed absolute bg-white p-8 shadow-lg rounded-lg w- h-96">
+    <p class="mb-4">This is a Tailwind CSS popup!</p>
+    <button id="closePopup" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Close
+    </button>
+  </div>
+
+  <script>
+    const openPopupButtons = document.querySelectorAll('.openPopup');
+    const closePopupButton = document.getElementById('closePopup');
+    const popup = document.getElementById('myPopup');
+
+    openPopupButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        popup.classList.add('active');
+      });
+    });
+
+    closePopupButton.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
